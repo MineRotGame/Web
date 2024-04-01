@@ -29,47 +29,116 @@
 </script>
 <body>
     <link ref="stylesheet" href="style.css">
-- rows = 9
-- cols = 9
+	<main id="parent" class="main" style="--number: 1">
+	<input type="checkbox" id="switch-1" class="checkbox" autocomplete="off" />
+	<input type="checkbox" id="switch-2" class="checkbox" autocomplete="off" />
+	<input type="checkbox" id="switch-3" class="checkbox" autocomplete="off" />
+	<input type="checkbox" id="switch-4" class="checkbox" autocomplete="off" />
+	<input type="checkbox" id="switch-5" class="checkbox" autocomplete="off" />
 
-- count = rows * cols
+	<section class="wrapper">
 
-%form
-	- count.times do |i|
-		%input{:type => "checkbox", :id => "c#{i+1}"}
-		%input{:type => "checkbox", :id => "f#{i+1}"}
+		<!-- RANGE INPUT -->
 
-	%input(type="radio" name="mode" id="modeMine" checked)
-	%input(type="radio" name="mode" id="modeFlag")
+		<div class="range-1">
+			<div class="dial">
+				<div class="groove-container">
+					<input type="range" class="range" name="switch-range" min="1" max="5" value="1" autocomplete="off" oninput="document.getElementById('parent').setAttribute('style', '--number: ' + this.value)" />
 
-	.actionSelector
-		%label(for="modeMine")
-			⛏
-		%label(for="modeFlag")
-			🚩
+					<span class="groove"></span>
+					<span class="groove"></span>
+					<span class="groove"></span>
+					<span class="groove"></span>
+					<span class="groove"></span>
+					<span class="groove"></span>
+					<span class="groove"></span>
+					<span class="groove"></span>
+					<span class="groove"></span>
+					<span class="groove"></span>
+					<span class="groove"></span>
+					<span class="groove"></span>
+					<span class="groove"></span>
+				</div>
+			</div>
+		</div>
 
-	.grid
-		- count.times do |i|
-			%label{:for => "c#{i+1}"}
-		.flags
-			- count.times do |i|
-				%label{:for => "f#{i+1}"}
-		%button.error(type="reset" tabindex="-1")
-			Ooohhh 🙁
-			%br
-			Click to try again
-		%button.victory(type="reset" tabindex="-1")
-			👌👀✔💯💯💯
-			%br
-			Click to restart
-			
-	.infos
-		.counter
-		.timer
-			- 3.times do
-				.digit
-			.separator
-			- 2.times do
-				.digit
+		<!-- SWITCH -->
+
+		<div class="switch-1">
+			<div class="inner-border">
+				<div class="switch-container">
+					<!-- <input type="checkbox" id="switch-1" class="checkbox" autocomplete="off" /> -->
+		
+					<label for="switch-1" class="switch">
+						<div class="top"></div>
+						<div class="edge"></div>
+						<div class="bottom"></div>
+						<div class="dot"></div>
+
+						<div class="text">Switch 1</div>
+					</label>
+
+					<!-- <input type="checkbox" id="switch-2" class="checkbox" autocomplete="off" /> -->
+		
+					<label for="switch-2" class="switch">
+						<div class="top"></div>
+						<div class="edge"></div>
+						<div class="bottom"></div>
+						<div class="dot"></div>
+
+						<div class="text">Switch 2</div>
+					</label>
+
+					<!-- <input type="checkbox" id="switch-3" class="checkbox" autocomplete="off" /> -->
+
+					<label for="switch-3" class="switch">
+						<div class="top"></div>
+						<div class="edge"></div>
+						<div class="bottom"></div>
+						<div class="dot"></div>
+
+						<div class="text">Switch 3</div>
+					</label>
+
+					<!-- <input type="checkbox" id="switch-4" class="checkbox" autocomplete="off" /> -->
+
+					<label for="switch-4" class="switch">
+						<div class="top"></div>
+						<div class="edge"></div>
+						<div class="bottom"></div>
+						<div class="dot"></div>
+
+						<div class="text">Switch 4</div>
+					</label>
+
+					<!-- <input type="checkbox" id="switch-5" class="checkbox" autocomplete="off" /> -->
+
+					<label for="switch-5" class="switch">
+						<div class="top"></div>
+						<div class="edge"></div>
+						<div class="bottom"></div>
+						<div class="dot"></div>
+
+						<div class="text">Switch 5</div>
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<p class="description">
+			The switch itself is pure CSS, using a checkbox to control its on/off state. The dial is a <code>range</code> input with a <em>tiny</em> 
+			scrap of JavaScript in it to set a CSS variable, which in turn updates the dial's position and how many switches are shown. But that's just 
+			for fanciness - the switch itself (and everything else) is still just CSS 🕹
+		</p>
+	</section>
+
+	<svg width="564" height="406" viewBox="0 0 564 406" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<path fill="#F79AB5" opacity="0.1" d="M564 50.4 L564 406 0 406 0 52.55 Q48.1 66.1 94.8 51.7 124.05 42.65 154.05 36.3 188.2 29.05 219.3 46.6 231.55 53.55 246 53 295.65 50 337.45 19.3 381.3 -12.95 427.3 10.8 444.35 19.65 460.6 29.7 503.4 56.2 554.4 50.9 L564 50.4"/>
+		<path fill="#F9C1AD" opacity="0.2" d="M527.45 114.25 Q544.9 105.75 564 102.85 L564 406 0 406 0 120.3 Q10.7 114.65 21.65 109.55 38.65 101.7 55.95 95.15 74.5 88.15 94.05 84.85 113.8 81.25 133.6 84.5 150.95 87.3 166.95 94.75 L200.65 110.5 Q218.2 118.6 237 122.8 256.1 126.85 275.6 126.35 294.85 125.85 313.35 120.4 318.25 118.9 322.95 116.75 340.5 108.4 360 108.75 367.15 108.9 373.8 110.8 392.5 115.9 406.95 129.2 415.55 137.05 425.55 143.15 442.15 153.2 460.65 147.5 478.35 142.2 494.25 132.4 510.5 122.45 527.45 114.25"/>
+		<path fill="#F3F8A2" opacity="0.3" d="M391.65 169.45 Q436.35 189.25 483.3 201.85 522.95 212.45 564 206.9 L564 406 0 406 0 185.15 Q40.1 219.9 90.75 215.55 106 214.2 118.55 204.9 163.6 171.45 209.45 200.7 239.45 219.85 270.2 201.4 312.45 176.1 359.55 165.95 376 162.6 391.65 169.45"/>
+		<path fill="#B8F6AA" opacity="0.4" d="M342.6 257.2 Q396 284.45 452.4 270.15 510.2 255.35 564 286.55 L564 406 0 406 0 283.6 Q10.9 279.65 22.1 276.65 79.95 260.8 139.1 271.25 165.5 276.05 191.5 278.05 212.75 279.65 232.3 265.5 284.7 227.55 342.6 257.2"/>
+		<path fill="#B8D2F6" opacity="0.6" d="M0 321.35 Q48.2 342.65 91.7 356.75 138.85 372 188.1 365.7 236.4 359.9 282.9 345.15 329.05 330.35 372.85 351 410.45 368.6 448.9 358.7 465.6 354.45 481 346.7 520.3 327 564 325.85 L564 406 0 406 0 321.35"/>
+	</svg>
+</main>
 </body>
 </html>>
