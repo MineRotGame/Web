@@ -1,639 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap');
 
-:root {
-	--last-shadow: linear-gradient(90deg, rgba(80, 80, 80, 0) 50%, rgba(80, 80, 80, 0.1) 100%);
+html, body {
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
 }
 
 body {
-	position: relative;
-	height: 100dvh;
-	margin: 0;
-	padding: 0;
-	background-color: #FCFCFA;
-	font-family: 'Space Grotesk', sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 400;
-	font-style: normal;
-}
-
-* {
-	box-sizing: border-box;
-}
-
-main {
-	position: relative;
-	height: 100dvh;
-	max-height: -webkit-fill-available;
-	max-width: 100vw;
-	overflow: hidden;
-}
-
-/*	*/
-
-svg {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	z-index: -1;
-}
-
-svg path {
-	transform: translateX(calc((12.5% * -1) * (var(--number) - 1))) scaleX(calc(1 + (0.25 * (var(--number) - 1))));
-	transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-svg path:nth-of-type(2) {
-	transition-duration: 1s;
-}
-
-svg path:nth-of-type(3) {
-	transition-duration: 1.5s;
-}
-
-svg path:nth-of-type(4) {
-	transition-duration: 2s;
-}
-
-svg path:nth-of-type(5) {
-	transition-duration: 2.5s;
-}
-
-input.checkbox#switch-1:checked ~ svg path:nth-of-type(1),
-input.checkbox#switch-2:checked ~ svg path:nth-of-type(2),
-input.checkbox#switch-3:checked ~ svg path:nth-of-type(3),
-input.checkbox#switch-4:checked ~ svg path:nth-of-type(4),
-input.checkbox#switch-5:checked ~ svg path:nth-of-type(5) {
-	opacity: 0;
-}
-
-/*	*/
-
-section.wrapper {
-	display: flex;
-	flex-direction: column;
-	width: 12.500rem;
-	min-height: 100vh;
-	margin: auto;
-	padding: 80px 0;
-}
-
-.switch-1 {
-	max-width: 12.500rem;
-	padding: 6px;
-	border-radius: 18px;
-	background-color: #EEEEEE;
-}
-
-.switch-1 .inner-border {
-	padding: 2px;
-	border-radius: 12px;
-	background: linear-gradient(135deg, #B7B7B7 0%, #CCCCCC 100%);
-}
-
-.switch-1 .switch-container {
-	display: flex;
-	gap: 2px;
-}
-
-.switch-1 .switch-container .switch {
-	position: relative;
-	flex-basis: 100%;
-	display: block;
-	height: 8.250rem;
-	background: linear-gradient(180deg, #FAF7F7 0%, #F4F4F4 100%);
-	cursor: pointer;
-	overflow: hidden;
-	display: none;
-}
-
-.switch, .switch *,
-.switch::before, .switch::after {
-	transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.switch-1 .switch-container .switch:first-of-type {
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-}
-
-.switch-1 .switch-container .switch:last-of-type {
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-}
-
-.switch-1 .switch-container .switch .text {
-	text-indent: -999rem;
-	overflow: hidden;
-}
-
-.switch-1 .switch-container .switch::before,
-.switch-1 .switch-container .switch::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: block;
-	height: calc(20% + 11px);
-	width: 100%;
-	z-index: 0;
-}
-
-.switch-1 .switch-container .switch:first-of-type::before {
-	background: linear-gradient(90deg, rgba(249, 249, 249, 0.75) 0%, rgba(249, 249, 249, 0) 50%);
-	
-}
-
-.switch-1 .switch-container .switch:last-of-type::after {
-	background: var(--last-shadow);
-}
-
-/*	*/
-
-#parent[style*="--number: 1"] .switch:nth-of-type(-n+1) {
-	display: block;
-}
-
-#parent[style*="--number: 1"] .switch:nth-of-type(1) {
-	border-radius: 10px;
-}
-
-#parent[style*="--number: 2"] .switch:nth-of-type(-n+2) {
-	display: block;
-}
-
-#parent[style*="--number: 2"] .switch:nth-of-type(2) {
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-}
-
-#parent[style*="--number: 3"] .switch:nth-of-type(-n+3) {
-	display: block;
-}
-
-#parent[style*="--number: 3"] .switch:nth-of-type(3) {
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-}
-
-#parent[style*="--number: 4"] .switch:nth-of-type(-n+4) {
-	display: block;
-}
-
-#parent[style*="--number: 4"] .switch:nth-of-type(4) {
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-}
-
-#parent[style*="--number: 5"] .switch {
-	display: block;
-}
-
-#parent[style*="--number: 1"] .switch:nth-of-type(1)::after {
-	background: var(--last-shadow);
-}
-
-#parent[style*="--number: 2"] .switch:nth-of-type(2)::after {
-	background: var(--last-shadow);
-}
-
-#parent[style*="--number: 3"] .switch:nth-of-type(3)::after {
-	background: var(--last-shadow);
-}
-
-#parent[style*="--number: 4"] .switch:nth-of-type(4)::after {
-	background: var(--last-shadow);
-}
-
-/*	*/
-
-.switch-1 .switch-container .switch .top {
-	height: calc(20% + 10px);
-	background: linear-gradient(180deg, #EFEFEF 0%, #F3F2F1 100%);
-}
-
-.switch-1 .switch-container .switch .bottom {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 0;
-	background: linear-gradient(180deg, rgba(198, 198, 198, 0) 0%, rgba(198, 198, 198, 1) 20%);
-	opacity: 0;
-	z-index: 1;
-}
-
-.switch-1 .switch-container .switch .edge {
-	position: absolute;
-	top: 20%;
-	left: -10px;
-	width: calc(100% + 22px);
-	height: 105%;
-	border-radius: 10px;
-	background: linear-gradient(180deg, #F3F2F1 0%, #EBE9E8 100%);
-	border-top: 1px solid #FFFFFF;
-	box-shadow: 0 0 4px 1px #FFFFFF, 0 0 4px 1px rgba(255, 255, 255, 0.25), inset -2px 0 4px 1px #FFFFFF, inset -2px 0 4px 1px rgba(255, 255, 255, 0.25);
-	z-index: 1;
-}
-
-.switch-1 .switch-container .switch:first-of-type .edge {
-	left: 0;
-}
-
-.switch-1 .switch-container .switch:last-of-type .edge {
-	left: -20px;
-}
-
-#parent[style*="--number: 1"] .switch:nth-of-type(1) .edge {
-	left: 0;
-	width: calc(100% + 2px);
-}
-
-#parent[style*="--number: 2"] .switch:nth-of-type(2) .edge {
-	left: -20px;
-}
-
-#parent[style*="--number: 3"] .switch:nth-of-type(3) .edge {
-	left: -20px;
-}
-
-#parent[style*="--number: 4"] .switch:nth-of-type(4) .edge {
-	left: -20px;
-}
-
-.switch-1 .switch-container .switch .dot {
-	position: absolute;
-	top: 20%;
-	left: 50%;
-	width: 0.375rem;
-	height: 0.375rem;
-	margin-top: 14px;
-	border-radius: 50%;
-	background-color: #FF6248;
-	transform: translateX(-50%);
-	z-index: 1;
-}
-
-input.checkbox {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 0;
-	height: 0;
-	visibility: hidden;
-	clip: rect(0, 0, 0, 0);
-}
-
-input.checkbox#switch-1:checked ~ section .switch[for="switch-1"]::before,
-input.checkbox#switch-1:checked ~ section .switch[for="switch-1"]::after,
-input.checkbox#switch-1:checked ~ section .switch[for="switch-1"] .top,
-input.checkbox#switch-1:checked ~ section .switch[for="switch-1"] .edge,
-
-input.checkbox#switch-2:checked ~ section .switch[for="switch-2"]::before,
-input.checkbox#switch-2:checked ~ section .switch[for="switch-2"]::after,
-input.checkbox#switch-2:checked ~ section .switch[for="switch-2"] .top,
-input.checkbox#switch-2:checked ~ section .switch[for="switch-2"] .edge,
-
-input.checkbox#switch-3:checked ~ section .switch[for="switch-3"]::before,
-input.checkbox#switch-3:checked ~ section .switch[for="switch-3"]::after,
-input.checkbox#switch-3:checked ~ section .switch[for="switch-3"] .top,
-input.checkbox#switch-3:checked ~ section .switch[for="switch-3"] .edge,
-
-input.checkbox#switch-4:checked ~ section .switch[for="switch-4"]::before,
-input.checkbox#switch-4:checked ~ section .switch[for="switch-4"]::after,
-input.checkbox#switch-4:checked ~ section .switch[for="switch-4"] .top,
-input.checkbox#switch-4:checked ~ section .switch[for="switch-4"] .edge,
-
-input.checkbox#switch-5:checked ~ section .switch[for="switch-5"]::before,
-input.checkbox#switch-5:checked ~ section .switch[for="switch-5"]::after,
-input.checkbox#switch-5:checked ~ section .switch[for="switch-5"] .top,
-input.checkbox#switch-5:checked ~ section .switch[for="switch-5"] .edge,
-input.checkbox:checked + .switch::before,
-input.checkbox:checked + .switch::after,
-input.checkbox:checked + .switch .top,
-input.checkbox:checked + .switch .edge {
-	opacity: 0;
-}
-
-input.checkbox#switch-1:checked ~ section .switch[for="switch-1"],
-input.checkbox#switch-2:checked ~ section .switch[for="switch-2"],
-input.checkbox#switch-3:checked ~ section .switch[for="switch-3"],
-input.checkbox#switch-4:checked ~ section .switch[for="switch-4"],
-input.checkbox#switch-5:checked ~ section .switch[for="switch-5"],
-input.checkbox:checked + .switch {
-	box-shadow: rgba(0, 0, 0, 0.1) 6px 10px 12px 0, rgba(0, 0, 0, 0.15) 4px 4px 4px 0;
-	z-index: 2;
-}
-
-input.checkbox#switch-1:checked ~ section .switch[for="switch-1"] .top,
-input.checkbox#switch-2:checked ~ section .switch[for="switch-2"] .top,
-input.checkbox#switch-3:checked ~ section .switch[for="switch-3"] .top,
-input.checkbox#switch-4:checked ~ section .switch[for="switch-4"] .top,
-input.checkbox#switch-5:checked ~ section .switch[for="switch-5"] .top,
-input.checkbox:checked + .switch .top {
-	height: 0;
-}
-
-input.checkbox#switch-1:checked ~ section .switch[for="switch-1"] .bottom,
-input.checkbox#switch-2:checked ~ section .switch[for="switch-2"] .bottom,
-input.checkbox#switch-3:checked ~ section .switch[for="switch-3"] .bottom,
-input.checkbox#switch-4:checked ~ section .switch[for="switch-4"] .bottom,
-input.checkbox#switch-5:checked ~ section .switch[for="switch-5"] .bottom,
-input.checkbox:checked + .switch .bottom {
-	height: 14%;
-	opacity: 1;
-}
-
-input.checkbox#switch-1:checked ~ section .switch[for="switch-1"] .edge,
-input.checkbox#switch-2:checked ~ section .switch[for="switch-2"] .edge,
-input.checkbox#switch-3:checked ~ section .switch[for="switch-3"] .edge,
-input.checkbox#switch-4:checked ~ section .switch[for="switch-4"] .edge,
-input.checkbox#switch-5:checked ~ section .switch[for="switch-5"] .edge,
-input.checkbox#switch-1:checked ~ section .switch[for="switch-1"] .dot,
-input.checkbox#switch-2:checked ~ section .switch[for="switch-2"] .dot,
-input.checkbox#switch-3:checked ~ section .switch[for="switch-3"] .dot,
-input.checkbox#switch-4:checked ~ section .switch[for="switch-4"] .dot,
-input.checkbox#switch-5:checked ~ section .switch[for="switch-5"] .dot,
-input.checkbox:checked + .switch .edge,
-input.checkbox:checked + .switch .dot {
-	top: 0;
-}
-
-input.checkbox#switch-1:checked ~ section .switch[for="switch-1"] .dot,
-input.checkbox#switch-2:checked ~ section .switch[for="switch-2"] .dot,
-input.checkbox#switch-3:checked ~ section .switch[for="switch-3"] .dot,
-input.checkbox#switch-4:checked ~ section .switch[for="switch-4"] .dot,
-input.checkbox#switch-5:checked ~ section .switch[for="switch-5"] .dot,
-input.checkbox:checked + .switch .dot {
-	background-color: #D7D7D7;
-}
-
-/*
-	DESCRIPTION
- */
-
-.description {
-	margin: 40px -60px 0 -60px;
-	font-size: 0.875rem;
-	text-align: center;
-	opacity: 0;
-	transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-	order: 2;
-}
-
-.description code {
-  padding: 2px 4px;
-  background-color: #EEEEEE;
-}
-
-input.checkbox#switch-1:checked ~ section.wrapper .description {
-	opacity: 1;
-}
-
-/*
-	RANGE INPUT
- */
-
-.range-1 {
-	position: relative;
-	max-width: 12.500rem;
-	margin-top: 32px;
-	padding: 2px 1px;
-	background: linear-gradient(180deg, #C9C9C9 0%, #9C9C9C 100%);
-	border-radius: 2px;
-	order: 1;
-}
-
-.range-1::before {
-	content: '';
-	position: absolute;
-	top: -1rem;
-	left: calc(calc(var(--number) - 1) * 25%);
-	display: block;
-	width: 1.250rem;
-	height: 0.875rem;
-	background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2214%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%3Cpolygon%20points%3D%220%2C0%2020%2C0%2010%2C14%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E');
-	background-repeat: no-repeat;
-	transform: translateX(-50%);
-	transition: all 1.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.range-1 .dial {
-	position: relative;
-	width: 100%;
-	height: 2rem;
-	background: linear-gradient(90deg, #FAFAFA 0%, #F0F0F0 20%, #F0F0F0 80%, #E0E0DF 100%);
-}
-
-.range-1 .dial::before {
-	content: '';
-	position: absolute;
-	top: 50%;
-	left: 20%;
-	display: block;
-	width: 60%;
-	height: 50%;
-	background: linear-gradient(90deg, rgba(24,27,28,0.05) 0%, rgba(24,27,28,0.2) 35%, rgba(24,27,28,0.2) 65%, rgba(24,27,28,0.05) 100%);
-	filter: blur(10px);
-	z-index: -1;
-}
-
-.range-1 .dial::after {
-	content: '';
-	position: absolute;
-	top: 50%;
-	left: 10%;
-	display: block;
-	width: 80%;
-	height: 70%;
-	background: linear-gradient(90deg, rgba(24,27,28,0.05) 0%, rgba(24,27,28,0.2) 35%, rgba(24,27,28,0.2) 65%, rgba(24,27,28,0.05) 100%);
-	filter: blur(6px);
-	z-index: -1;
-}
-
-.range-1 .dial .groove-container {
-	position: relative;
-	display: flex;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-}
-
-.range-1 .dial .groove {
-	width: calc(var(--w) * 1%);
-	height: 100%;
-	margin: 0 calc(var(--w) * 0.5px);
-	background: linear-gradient(90deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 1%, rgba(0, 0, 0, 0.1) 2%, rgba(0, 0, 0, 0) 74%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.1) 98%, rgba(255, 255, 255, 0.65) 99%, rgba(255, 255, 255, 0.65) 100%);
-	transition: all 1.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.range-1 .dial input.range {
-	position: absolute;
-	top: 0%;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	cursor: pointer;
-	transform: scaleY(2);
-}
-
-.range-1 .dial input.range::-moz-range-thumb,
-.range-1 .dial input.range::-webkit-slider-thumb {
-	height: 2rem;
-}
-
-.range-1 .dial .groove:nth-of-type(-n+4) {
-	--w: 0;
-}
-
-.range-1 .dial .groove:nth-of-type(5),
-.range-1 .dial .groove:nth-of-type(13) {
-	--w: 4;
-}
-
-.range-1 .dial .groove:nth-of-type(6),
-.range-1 .dial .groove:nth-of-type(12) {
-	--w: 8;
-}
-
-.range-1 .dial .groove:nth-of-type(7),
-.range-1 .dial .groove:nth-of-type(11) {
-	--w: 12;
-}
-
-.range-1 .dial .groove:nth-of-type(8),
-.range-1 .dial .groove:nth-of-type(10) {
-	--w: 16;
-}
-
-.range-1 .dial .groove:nth-of-type(9) {
-	--w: 20;
-}
-
-#parent[style*="--number: 2"] .groove:nth-of-type(-n+3) {
-	--w: 0;
-}
-
-#parent[style*="--number: 2"] .groove:nth-of-type(4),
-#parent[style*="--number: 2"] .groove:nth-of-type(12) {
-	--w: 4;
-}
-
-#parent[style*="--number: 2"] .groove:nth-of-type(5),
-#parent[style*="--number: 2"] .groove:nth-of-type(11) {
-	--w: 8;
-}
-
-#parent[style*="--number: 2"] .groove:nth-of-type(6),
-#parent[style*="--number: 2"] .groove:nth-of-type(10) {
-	--w: 12;
-}
-
-#parent[style*="--number: 2"] .groove:nth-of-type(7),
-#parent[style*="--number: 2"] .groove:nth-of-type(9) {
-	--w: 16;
-}
-
-#parent[style*="--number: 2"] .groove:nth-of-type(8) {
-	--w: 20;
-}
-
-#parent[style*="--number: 2"] .groove:nth-of-type(13) {
-	--w: 0;
-}
-
-/* */
-
-#parent[style*="--number: 3"] .groove:nth-of-type(-n+2) {
-	--w: 0;
-}
-
-#parent[style*="--number: 3"] .groove:nth-of-type(3),
-#parent[style*="--number: 3"] .groove:nth-of-type(11) {
-	--w: 4;
-}
-
-#parent[style*="--number: 3"] .groove:nth-of-type(4),
-#parent[style*="--number: 3"] .groove:nth-of-type(10) {
-	--w: 8;
-}
-
-#parent[style*="--number: 3"] .groove:nth-of-type(5),
-#parent[style*="--number: 3"] .groove:nth-of-type(9) {
-	--w: 12;
-}
-
-#parent[style*="--number: 3"] .groove:nth-of-type(6),
-#parent[style*="--number: 3"] .groove:nth-of-type(8) {
-	--w: 16;
-}
-
-#parent[style*="--number: 3"] .groove:nth-of-type(7) {
-	--w: 20;
-}
-
-#parent[style*="--number: 3"] .groove:nth-of-type(n+12) {
-	--w: 0;
-}
-
-/* */
-
-#parent[style*="--number: 4"] .groove:nth-of-type(-n+1) {
-	--w: 0;
-}
-
-#parent[style*="--number: 4"] .groove:nth-of-type(2),
-#parent[style*="--number: 4"] .groove:nth-of-type(10) {
-	--w: 4;
-}
-
-#parent[style*="--number: 4"] .groove:nth-of-type(3),
-#parent[style*="--number: 4"] .groove:nth-of-type(9) {
-	--w: 8;
-}
-
-#parent[style*="--number: 4"] .groove:nth-of-type(4),
-#parent[style*="--number: 4"] .groove:nth-of-type(8) {
-	--w: 12;
-}
-
-#parent[style*="--number: 4"] .groove:nth-of-type(5),
-#parent[style*="--number: 4"] .groove:nth-of-type(7) {
-	--w: 16;
-}
-
-#parent[style*="--number: 4"] .groove:nth-of-type(6) {
-	--w: 20;
-}
-
-#parent[style*="--number: 4"] .groove:nth-of-type(n+11) {
-	--w: 0;
-}
-
-/* */
-
-#parent[style*="--number: 5"] .groove:nth-of-type(1),
-#parent[style*="--number: 5"] .groove:nth-of-type(9) {
-	--w: 4;
-}
-
-#parent[style*="--number: 5"] .groove:nth-of-type(2),
-#parent[style*="--number: 5"] .groove:nth-of-type(8) {
-	--w: 8;
-}
-
-#parent[style*="--number: 5"] .groove:nth-of-type(3),
-#parent[style*="--number: 5"] .groove:nth-of-type(7) {
-	--w: 12;
-}
-
-#parent[style*="--number: 5"] .groove:nth-of-type(4),
-#parent[style*="--number: 5"] .groove:nth-of-type(6) {
-	--w: 16;
-}
-
-#parent[style*="--number: 5"] .groove:nth-of-type(5) {
-	--w: 20;
-}
-
-#parent[style*="--number: 5"] .groove:nth-of-type(n+10) {
-	--w: 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  background:#eee;
+}
+
+.cards-wrapper {
+  width:100%;
+  height:300px;
+  max-width:1200px;
+  overflow-x:hidden;
+  position:relative;
+}
+
+.cards {
+  position:absolute;
+  top:15px;
+  left:50%;
+  transform:translateX(-110px);
+  display:flex;
+  flex-direction:row;
+  width:1300px;
+  justify-content:space-between;
+}
+
+.card {
+  width:220px;
+  height:260px;
+  border-radius:14px;
+  border:none;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing:0.5px;
+  display:inline;
+  cursor:pointer;
+  box-sizing:border-box;
+  color:#000;
+}
+
+.card h2 {
+  font-size:2.6em;
+  font-weight:300;
+  margin-top:1.25em;
+}
+
+.card h4 {
+  text-transform:uppercase;
+}
+
+.icon svg {
+  overflow:visible;
+  stroke-width:1.25em;
+  width:3em;
+}
+
+.cards-wrapper::after {
+  content:'';
+  display:block;
+  position:absolute;
+  top:0;
+  width:100%;
+  max-width:1200px;
+  height:100%;
+  background:linear-gradient(90deg, #eee 0%, #ffffff00 30%, #ffffff00 70%, #eee 100%);
+  pointer-events:none;
+}
+
+.arrow-btn {
+  width:40px;
+  height:40px;
+  background:#fff;
+  border-radius:50%;
+  border:none;
+  box-shadow: 0 6px 8px #00000030;
+  position:absolute;
+  top:50%;
+  left:20px;
+  transform:translateY(-50%);
+  z-index:1000;
+  cursor:pointer;
+}
+
+.arrow-btn-next {
+  left:auto;
+  right:20px;
+}
+
+.arrow-btn svg {
+  fill:#333;
+  position:absolute;
+  height:80%;  
+  left:50%;
+  top:50%;
+  transform:translate(-60%,-50%);
+}
+
+.arrow-btn-next svg {
+  transform:translate(-40%,-50%);
 }
